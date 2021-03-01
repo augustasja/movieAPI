@@ -77,6 +77,7 @@ namespace MovieAPI.Controllers
             if(ModelState.IsValid)
             {
                 var updateActor = new Actor();
+                updateActor.Id = id;
                 updateActor.FullName = actorDto.FullName;
                 var addResult = await _actorRepo.UpdateAsync(updateActor);
                 if (addResult == false)

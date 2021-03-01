@@ -1,4 +1,3 @@
-C:\Users\augus\Desktop\MovieAPI\MovieAPI\MovieAPI\obj\Debug\net5.0\MovieAPI.csprojAssemblyReference.cache
 C:\Users\augus\Desktop\MovieAPI\MovieAPI\MovieAPI\obj\Debug\net5.0\MovieAPI.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\augus\Desktop\MovieAPI\MovieAPI\MovieAPI\obj\Debug\net5.0\MovieAPI.AssemblyInfoInputs.cache
 C:\Users\augus\Desktop\MovieAPI\MovieAPI\MovieAPI\obj\Debug\net5.0\MovieAPI.AssemblyInfo.cs
@@ -59,3 +58,4 @@ C:\Users\augus\Desktop\MovieAPI\MovieAPI\MovieAPI\obj\Debug\net5.0\MovieAPI.dll
 C:\Users\augus\Desktop\MovieAPI\MovieAPI\MovieAPI\obj\Debug\net5.0\ref\MovieAPI.dll
 C:\Users\augus\Desktop\MovieAPI\MovieAPI\MovieAPI\obj\Debug\net5.0\MovieAPI.pdb
 C:\Users\augus\Desktop\MovieAPI\MovieAPI\MovieAPI\obj\Debug\net5.0\MovieAPI.genruntimeconfig.cache
+C:\Users\augus\Desktop\MovieAPI\MovieAPI\MovieAPI\obj\Debug\net5.0\MovieAPI.csprojAssemblyReference.cache

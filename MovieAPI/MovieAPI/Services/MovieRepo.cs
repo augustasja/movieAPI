@@ -31,16 +31,15 @@ namespace MovieAPI.Services
         public async Task<IEnumerable<Movie>> SearchMovieAsync(string searchTerm)
         {
             IQueryable<Movie> query = _context.Movies;
-                query = query.Include(a => a.Actors).Where(n => n.Name.Contains(searchTerm) || n.MovieGenre.Type.Contains(searchTerm));
+                query = query.Include(a => a.Actors).Include(g => g.MovieGenre).Where(n => n.Name.Contains(searchTerm) || n.MovieGenre.Type.Contains(searchTerm));
  
             return await query.ToListAsync();
-            //return await _context.Movies.Include(g => g.MovieGenre).Where(x => x.Name == searchTerm || x.MovieGenre.Type == searchTerm).ToListAsync();
             
         }
-        public async Task<IEnumerable<Movie>> SearchByMovieDateAsync(DateTime releaseDate)
+        public async Task<IEnumerable<Movie>> SearchByMovieDateAsync(string releaseDate)
         {
             return await _context.Movies.Include(g => g.MovieGenre)
-                                        .Where(x => x.ReleaseDate == releaseDate).ToListAsync();
+                                        .Where(x => x.ReleaseDate.Contains(releaseDate)).ToListAsync();
             
         }
     }

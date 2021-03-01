@@ -14,11 +14,9 @@ namespace MovieAPI.Dto
         [MaxLength(120)]
         public string Name { get; set; }
         [Required]
-        [DataType(DataType.Date)]
-        public DateTime ReleaseDate { get; set; }
+        public string ReleaseDate { get; set; }
         [Required]
         public int GenreId { get; set; }
-        [Required]
         public List<Actor> Actors { get; set; }
     }
 }

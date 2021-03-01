@@ -30,8 +30,21 @@ namespace MovieAPI.Controllers
             if (!string.IsNullOrEmpty(search))
             {
                 var result = await _movieRepo.SearchMovieAsync(search);
+                result.ToList();
+                List<MovieGetDto> searchedMovies = new List<MovieGetDto>();
+                foreach (var item in result)
+                {
+                    var dto = new MovieGetDto();
+                    dto.Id = item.Id;
+                    dto.Name = item.Name;
+                    dto.ReleaseDate = item.ReleaseDate;
+                    dto.GenreName = item.MovieGenre.Type;
+                    dto.Actors = item.Actors;
+                    searchedMovies.Add(dto);
+
+                }
                 if (result.Any())
-                    return Ok(result);
+                    return Ok(searchedMovies);
 
             }
 
@@ -80,12 +93,16 @@ namespace MovieAPI.Controllers
                 newMovie.GenreId = movieDto.GenreId;
                 //newMovie.Actors = movieDto.Actors;
                 newMovie.Actors = new List<Actor>();
-                foreach (var actor in movieDto.Actors)
+                if(movieDto.Actors != null)
                 {
-                    var updateMovieActor = movieDto.Actors.FirstOrDefault(a => a.Id == actor.Id);
-                    updateMovieActor.FullName = actor.FullName;
-                    newMovie.Actors.Add(updateMovieActor);
+                    foreach (var actor in movieDto.Actors)
+                    {
+                        var updateMovieActor = movieDto.Actors.FirstOrDefault(a => a.Id == actor.Id);
+                        updateMovieActor.FullName = actor.FullName;
+                        newMovie.Actors.Add(updateMovieActor);
+                    }
                 }
+
                 var addResult = await _movieRepo.CreateAsync(newMovie);
                 if (addResult == null)
                     return BadRequest("Movie wasn't added. Try again.");
@@ -106,16 +123,19 @@ namespace MovieAPI.Controllers
                 movie.ReleaseDate = updateMovieDto.ReleaseDate;
                 movie.GenreId = updateMovieDto.GenreId;
                 movie.Actors = new List<Actor>();
-                foreach (var actor in updateMovieDto.Actors)
+                if(updateMovieDto.Actors != null)
                 {
-                    var updateActor = new Actor();
-                    updateActor = updateMovieDto.Actors.FirstOrDefault(a => a.Id == actor.Id);
-                    if(!actor.FullName.Contains(updateActor.FullName))
+                    foreach (var actor in updateMovieDto.Actors)
                     {
-                        updateActor.FullName = actor.FullName;
-                        movie.Actors.Add(updateActor);
-                    }
+                        var updateActor = new Actor();
+                        updateActor = updateMovieDto.Actors.FirstOrDefault(a => a.Id == actor.Id);
+                        if (!actor.FullName.Contains(updateActor.FullName))
+                        {
+                            updateActor.FullName = actor.FullName;
+                            movie.Actors.Add(updateActor);
+                        }
 
+                    }
                 }
 
                 var updateResult = await _movieRepo.UpdateAsync(movie);

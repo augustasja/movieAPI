@@ -67,28 +67,28 @@ namespace MovieAPI.Models
                 {
                     Id = 1,
                     Name = "Andrenaline",
-                    ReleaseDate = DateTime.Now,
+                    ReleaseDate = DateTime.Now.ToShortDateString(),
                     GenreId = 4
                 },
                 new Movie
                 {
                     Id = 2,
                     Name = "Shutter Island",
-                    ReleaseDate = DateTime.Now,
+                    ReleaseDate = DateTime.Now.ToShortDateString(),
                     GenreId = 1
                 },
                 new Movie
                 {
                     Id = 3,
                     Name = "Pirates Of The Carribean",
-                    ReleaseDate = DateTime.Now,
+                    ReleaseDate = DateTime.Now.ToShortDateString(),
                     GenreId = 4
                 },
                 new Movie
                 {
                     Id = 4,
                     Name = "We Are Smiths",
-                    ReleaseDate = DateTime.Now,
+                    ReleaseDate = DateTime.Now.ToShortDateString(),
                     GenreId = 2
                 }
                );

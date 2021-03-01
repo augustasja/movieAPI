@@ -61,7 +61,6 @@ namespace MovieAPI.Controllers
             {
                 var newGenre = new Genre();
                 newGenre.Type = genreDto.Type;
-
                 var addResult = await _genreRepo.CreateAsync(newGenre);
                 if (addResult == null)
                     return BadRequest("Genre wasn't added. Try again");

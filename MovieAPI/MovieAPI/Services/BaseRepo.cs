@@ -18,6 +18,7 @@ namespace MovieAPI.Services
 
         public async Task<T> CreateAsync(T entity)
         {
+           
             _context.Add(entity);
             await _context.SaveChangesAsync();
             return entity;
@@ -43,6 +44,7 @@ namespace MovieAPI.Services
 
         public async Task<bool> UpdateAsync(T entity)
         {
+            
             _context.Set<T>().Update(entity);
             await _context.SaveChangesAsync();
             return true;

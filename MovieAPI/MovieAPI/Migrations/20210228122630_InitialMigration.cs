@@ -1,9 +1,8 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MovieAPI.Migrations
 {
-    public partial class initial : Migration
+    public partial class InitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -40,7 +39,7 @@ namespace MovieAPI.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ReleaseDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ReleaseDate = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     GenreId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -105,10 +104,10 @@ namespace MovieAPI.Migrations
                 columns: new[] { "Id", "GenreId", "Name", "ReleaseDate" },
                 values: new object[,]
                 {
-                    { 2, 1, "Shutter Island", new DateTime(2021, 2, 27, 13, 17, 47, 136, DateTimeKind.Local).AddTicks(7409) },
-                    { 4, 2, "We Are Smiths", new DateTime(2021, 2, 27, 13, 17, 47, 136, DateTimeKind.Local).AddTicks(7465) },
-                    { 1, 4, "Andrenaline", new DateTime(2021, 2, 27, 13, 17, 47, 132, DateTimeKind.Local).AddTicks(9106) },
-                    { 3, 4, "Pirates Of The Carribean", new DateTime(2021, 2, 27, 13, 17, 47, 136, DateTimeKind.Local).AddTicks(7460) }
+                    { 2, 1, "Shutter Island", "2/28/2021" },
+                    { 4, 2, "We Are Smiths", "2/28/2021" },
+                    { 1, 4, "Andrenaline", "2/28/2021" },
+                    { 3, 4, "Pirates Of The Carribean", "2/28/2021" }
                 });
 
             migrationBuilder.InsertData(

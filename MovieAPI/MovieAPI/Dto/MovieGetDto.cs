@@ -10,7 +10,7 @@ namespace MovieAPI.Dto
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public DateTime ReleaseDate { get; set; }
+        public string ReleaseDate { get; set; }
         public string GenreName { get; set; }
         //public int GenreId { get; set; }
         public List<Actor> Actors { get; set; }
