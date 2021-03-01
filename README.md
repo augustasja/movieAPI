@@ -1,7 +1,7 @@
 # MovieAPI
 Working on movie CRUD API in .NET Core
 
-<p>Setting up database: Open visual studio, go to View -> SQL Server Object Explorer</p>
+<p>Setting up example database: Open visual studio, go to View -> SQL Server Object Explorer</p>
 <p>Expand (localdb)\MSSQLLocalDB...</p>
 <p>Right click on Database -> Publish Data-tier application.</p>
 <p>Click Browse and select MovieApiDB.dacpac and enter Database name: MovieApiDB. Click publish</p>
