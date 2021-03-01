@@ -1,0 +1,26 @@
+<div class="form-group row">
+    <label class="col-sm-2 col-form-label">Movie Name</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" [(ngModel)]="name">
+    </div>
+    <label class="col-sm-2 col-form-label">Release date</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" [(ngModel)]="releaseDate">
+    </div>
+    <label class="col-sm-2 col-form-label">Genre name</label>
+    <div class="col-sm-10">
+        <select  [(ngModel)]="genreId">     
+            <option *ngFor="let genre of genreId" [ngValue]="genre.id">{{genre.type}}</option>
+        </select>
+
+    </div>
+    <label class="col-sm-2 col-form-label">Actors</label>
+    <!-- <div class="col-sm-10">
+        <select [(ngModel)]="actors">     
+            <option  *ngFor="let actor of actors" [value]="actor.id">{{actor.fullname}}</option>
+        </select>
+    </div> -->
+</div>
+
+<button (click)="addMovie()" *ngIf="movie.id == 0" class="btn btn-primary">Add</button>
+<button (click)="updateMovie()" *ngIf="movie.name != 0" class="btn btn-primary">Update</button>
